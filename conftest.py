@@ -1,7 +1,6 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import time
 
 def pytest_addoption(parser):
     parser.addoption('--browser_name', action='store', default="chrome",
@@ -20,13 +19,11 @@ def browser(request):
         options.add_experimental_option('prefs', {'intl.accept_languages': use_language})
         print("\nstart chrome browser for test..")
         browser = webdriver.Chrome(options=options)
-        time.sleep(10)
     elif (browser_name == "firefox"):
         fp = webdriver.FirefoxProfile()
         fp.set_preference("intl.accept_languages", use_language)
         print("\nstart firefox browser for test..")
         browser = webdriver.Firefox(firefox_profile=fp)
-        time.sleep(10)
     else:
         print("Browser <browser_name> still is not implemented")
     yield browser
