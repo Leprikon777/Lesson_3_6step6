@@ -5,7 +5,7 @@ link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
 def is_element_present(browser):
     try:
         browser.implicitly_wait(10)
-        browser.find_element_by_css_selector(".btn-add-to-basket")
+        browser.find_element_by_css_selector(".btn-add-to-basket") #Вернул букву t в селктор, теперь тесты проходят
         return True
     except:
         return False
